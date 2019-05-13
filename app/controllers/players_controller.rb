@@ -23,6 +23,10 @@ class PlayersController < ApplicationController
     @player = Player.find(params[:id])
   end
 
+  def edit
+      @player = Player.find(params[:id])
+  end
+
 private
   def player_params
     params.require(:player).permit(:first_name, :last_name)
