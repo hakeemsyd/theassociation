@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get "players/:id" => "players#show"
   get "players/:id/edit" => "players#edit"
   patch "players/:id" => "players#update"
+  delete "players/:id" => "players#destroy"
 end
