@@ -9,9 +9,7 @@ class PlayersController < ApplicationController
   end
 
   def create
-    player = Player.new
-    player.first_name = params[:player][:first_name]
-    player.last_name = params[:player][:last_name]
+    player = Player.new(player_params)
 
     if player.save
       redirect_to "/players"
@@ -20,4 +18,10 @@ class PlayersController < ApplicationController
       redirect_to "/players/new"
     end
   end
+
+private
+  def player_params
+    params.require(:player).permit(:first_name, :last_name)
+  end
+
 end
